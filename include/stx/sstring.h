@@ -31,9 +31,9 @@ public:
 			::memcpy(data, other.data, sizeof(small));
 		} else {
 			data = other.data;
-			other.data = other.small;
-			other.small[0] = 0;
 		}
+		other.data = other.small;
+		other.small[0] = 0;
 	}
 	
 	~sstring() {
