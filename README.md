@@ -1,0 +1,2 @@
+# libstx
+Specialty template containers
