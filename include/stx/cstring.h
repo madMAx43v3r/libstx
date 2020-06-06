@@ -32,7 +32,10 @@ public:
 	}
 	
 	~cstring() {
-		clear();
+		if(data != &zero) {
+			delete [] data;
+		}
+		data = 0;
 	}
 	
 	cstring& operator=(const cstring& other) {
@@ -102,17 +105,14 @@ public:
 	
 protected:
 	void resize(size_t new_size) {
-		char* new_data;
-		if(new_size) {
-			new_data = new char[new_size + 1];
-		} else {
-			new_data = &zero;
-		}
 		if(data != &zero) {
-			::strncpy(new_data, data, new_size);
 			delete [] data;
 		}
-		data = new_data;
+		if(new_size) {
+			data = new char[new_size + 1];
+		} else {
+			data = &zero;
+		}
 		data[new_size] = 0;
 	}
 	
