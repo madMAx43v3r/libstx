@@ -83,6 +83,22 @@ public:
 		return ::strcmp(data, other.c_str()) > 0;
 	}
 	
+	friend bool operator==(const std::string& A, const cstring& B) {
+		return ::strcmp(A.c_str(), B.data) == 0;
+	}
+	
+	friend bool operator!=(const std::string& A, const cstring& B) {
+		return ::strcmp(A.c_str(), B.data) != 0;
+	}
+	
+	friend bool operator<(const std::string& A, const cstring& B) {
+		return ::strcmp(A.c_str(), B.data) < 0;
+	}
+	
+	friend bool operator>(const std::string& A, const cstring& B) {
+		return ::strcmp(A.c_str(), B.data) > 0;
+	}
+	
 	std::string str() const {
 		return std::string(data, size());
 	}
