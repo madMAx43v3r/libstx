@@ -75,6 +75,14 @@ public:
 		return ::strcmp(data, other.data) > 0;
 	}
 	
+	bool operator<(const std::string& other) const {
+		return ::strcmp(data, other.c_str()) < 0;
+	}
+	
+	bool operator>(const std::string& other) const {
+		return ::strcmp(data, other.c_str()) > 0;
+	}
+	
 	std::string str() const {
 		return std::string(data, size());
 	}
