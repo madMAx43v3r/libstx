@@ -18,6 +18,8 @@ namespace stx {
 template<size_t N>
 class fstring {
 public:
+	static constexpr size_t MAX_SIZE = N;
+	
 	fstring() = default;
 	
 	fstring(const fstring& other) = default;
